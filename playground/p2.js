@@ -1,14 +1,4 @@
-//* Description
-//  get client device type/os/browser
-//* Arguments
-//  ua(string) : navigator.userAgent | request.headers['user-agent']
-//* Returns :
-//  {
-//      device : 'desktop|mobile(phone)|mobile(tablet)',
-//      os : 'Windows|MacOS|iOS|Android|Linux|others',
-//      browser : 'Chrome|Firefox|IE|Edge|Safari|Opera|others'
-//  }
-function jf_client(ua) {
+function jf_agent(ua) {
     let ret = {
         device: 'desktop',
         os: 'others',
@@ -18,7 +8,7 @@ function jf_client(ua) {
 
     //device detection
     if (ua.indexOf('iphone') !== -1)
-        ret.device = 'mobile(phone)';
+        ret.device = 'phone';
     else if (ua.match(/(ipod|ipad)/))
         ret.device = 'mobile(tablet)';
     else if (ua.indexOf('android') !== -1) {
@@ -44,6 +34,8 @@ function jf_client(ua) {
         ret.os = 'Android';
     else if (ua.indexOf('linux') !== -1)
         ret.os = 'Linux';
+    else if (ua.indexOf('x11') !== -1)
+        ret.os = 'UNIX';
 
     //browser detection
     if (ua.indexOf('chrome') !== -1)
@@ -52,12 +44,14 @@ function jf_client(ua) {
         ret.browser = 'Firefox';
     else if (ua.indexOf('msie') !== -1)
         ret.browser = 'IE';
-    else if (ua.indexOf('edge') !== -1)
-        ret.browser = 'Edge';
     else if (ua.indexOf('safari') !== -1)
         ret.browser = 'Safari';
     else if (ua.indexOf('opera') !== -1)
         ret.browser = 'Opera';
+
+    return (ret);
+
+
 
     return (ret);
 }

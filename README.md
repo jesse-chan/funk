@@ -1,13 +1,13 @@
-# ToolFuncs
-Tool Functions Set
+# Funk
 
-this is an H2
-===
-o
+### Description
+Web tool function sets.
+Funk contains several usual functions you may use under web enviromment. 
 
-Hello
-this is
-
-* Bird
-
-* Magic
+### Usage
+    jf_client(ua)
+    
+    
+    
+### License
+Code released under [the MIT license](./LICENSE)    
