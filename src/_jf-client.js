@@ -1,13 +1,13 @@
 //* Description
 //  get client device type/os/browser
 //* Arguments
-//  ua(string) : navigator.userAgent | request.headers['user-agent']
-//* Returns :
-//  {
-//      device : 'desktop|mobile(phone)|mobile(tablet)',
-//      os : 'Windows|MacOS|iOS|Android|Linux|others',
-//      browser : 'Chrome|Firefox|IE|Edge|Safari|Opera|others'
-//  }
+//      ua(string) : navigator.userAgent | request.headers['user-agent']
+//* Returns(object) :
+//      {
+//          device : 'desktop|mobile(phone)|mobile(tablet)',
+//          os : 'Windows|MacOS|iOS|Android|Linux|others',
+//          browser : 'Chrome|Firefox|IE|Edge|Safari|Opera|others'
+//      }
 function jf_client(ua) {
     let ret = {
         device: 'desktop',
@@ -59,5 +59,5 @@ function jf_client(ua) {
     else if (ua.indexOf('opera') !== -1)
         ret.browser = 'Opera';
 
-    return (ret);
+    return ret;
 }

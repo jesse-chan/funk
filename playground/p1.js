@@ -1,66 +1,77 @@
 Date.prototype.Format = function (fmt) {
     let ret = '';
-    let w = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    let lm = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    let sm = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let ampm = ['AM', 'PM'];
-    let x = {
-        "y": this.getFullYear(),
-        "M": this.getMonth(),
-        "d": this.getDate(),
-        "w": this.getDay(),
-        "H": this.getHours(),
-        "m": this.getMinutes(),
-        "s": this.getSeconds(),
-        "q": Math.floor(this.getMonth()/3),
-        "S": this.getMilliseconds()
-    };
+    const w = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const lm = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const sm = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const ampm = ['AM', 'PM'];
     let a = fmt.split('');
-    a.push('\n');
-    let lastchar = '';
-    let charcnt = 0;
-    let flag = '';
-    for (let i in a) {
-        charcnt++;
-        if (lastchar !== a[i]) {
-            if (lastchar !== '')
-                flag = lastchar;
-            lastchar = a[i];
-        }
-        if (flag !== '') {
-            console.log(flag, charcnt);
-            switch (flag) {
-                case 'y':
-                    if (charcnt === 2)
-                        ret += x.y % 1000;
-                    else
-                        ret += x.y;
-                    break;
-                case 'M':
-                    break;
-                case 'd':
-                    break;
-                case 'w':
-                    break;
-                case 'h':
-                    break;
-                case 'H':
-                    break;
-                case 'm':
-                    break;
-                case 's':
-                    break;
-                case 'q':
-                    break;
-                case 'S':
-                    break;
-                default:
-                    ret += flag.repeat(charcnt);
-                    break;
+    if (a.length > 0) {
+        a.push('\n');
+        let x = {
+            "y": this.getFullYear(),
+            "M": this.getMonth(),
+            "d": this.getDate(),
+            "w": this.getDay(),
+            "H": this.getHours(),
+            "m": this.getMinutes(),
+            "s": this.getSeconds(),
+            "q": Math.floor(this.getMonth()/3),
+            "S": this.getMilliseconds()
+        };
+        let charcnt = 0;
+        let esc = false;
+        let l = a.length - 2;
+        for (let i in a) {
+            charcnt++;
+            if (esc === true) {
+                ret += a[i];
+                esc = false;
+                charcnt = 0;
+            } else {
+                if ((a[i] !== a[i+1])||(i == l)) {
+                    console.log(a[i], a[i+1]);
+                    switch (a[i]) {
+                        case 'y':
+                            while (charcnt > 4) {
+                                ret += x.y;
+                                charcnt -= 4;
+                            }
+                            while (charcnt > 2) {
+                                ret += x.y % 1000;
+                                charcnt -= 2;
+                            }
+                            ret += a[i].repeat(charcnt);
+                            break;
+                        case 'M':
+                            break;
+                        case 'd':
+                            break;
+                        case 'w':
+                            break;
+                        case 'h':
+                            break;
+                        case 'H':
+                            break;
+                        case 'm':
+                            break;
+                        case 's':
+                            break;
+                        case 'q':
+                            break;
+                        case 'S':
+                            break;
+                        case '\\':
+                            esc = true;
+                            break;
+                        default:
+                            ret += a[i].repeat(charcnt);
+                            break;
+                    }
+                    charcnt = 0;
+                }
             }
-            flag = '';
-            charcnt = 0;
         }
+
     }
 
     return ret;

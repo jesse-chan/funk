@@ -3,67 +3,17 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../dist/funk.js"></script>
     <style>
     </style>
 </head>
 <body>
 <div>this is a book</div>
-<button onclick="console.log(jf_agent(navigator.userAgent));">click</button>
+<button onclick="f();">click</button>
 <script>
-    function jf_client(ua) {
-        let ret = {
-            device: 'desktop',
-            os: 'others',
-            browser: 'others'
-        };
-        ua = ua.toLowerCase();
-
-        //device detection
-        if (ua.indexOf('iphone') !== -1)
-            ret.device = 'mobile(phone)';
-        else if (ua.match(/(ipod|ipad)/))
-            ret.device = 'mobile(tablet)';
-        else if (ua.indexOf('android') !== -1) {
-            if (ua.indexOf('mobile') !== -1)
-                ret.device = 'mobile(phone)';
-            else
-                ret.device = 'tablet';
-        }  else if (ua.match(/(weboS|blackberry|iemobile|opera mini)/)) {
-            if (ua.indexOf('tablet') !== -1)
-                ret.device = 'mobile(tablet)';
-            else
-                ret.device = 'mobile(phone)';
-        }
-
-        //os detection
-        if (ua.indexOf('win') !== -1)
-            ret.os = 'Windows';
-        else if (ua.indexOf('mac') !== -1)
-            ret.os = 'MacOS';
-        else if (ua.indexOf('ios') !== -1)
-            ret.os = 'iOS';
-        else if (ua.indexOf('android') !== -1)
-            ret.os = 'Android';
-        else if (ua.indexOf('linux') !== -1)
-            ret.os = 'Linux';
-
-        //browser detection
-        if (ua.indexOf('chrome') !== -1)
-            ret.browser = 'Chrome';
-        else if (ua.indexOf('firefox') !== -1)
-            ret.browser = 'Firefox';
-        else if (ua.indexOf('msie') !== -1)
-            ret.browser = 'IE';
-        else if (ua.indexOf('edge') !== -1)
-            ret.browser = 'Edge';
-        else if (ua.indexOf('safari') !== -1)
-            ret.browser = 'Safari';
-        else if (ua.indexOf('opera') !== -1)
-            ret.browser = 'Opera';
-
-        return (ret);
+    function f() {
+        console.log(new Date().Format('yyy'));
     }
-
 </script>
 </body>
 </html>
