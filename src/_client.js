@@ -1,13 +1,3 @@
-//* Description
-//  get client device type/os/browser
-//* Arguments
-//      ua(string) : navigator.userAgent | request.headers['user-agent']
-//* Returns(object) :
-//      {
-//          device : 'desktop|mobile(phone)|mobile(tablet)',
-//          os : 'Windows|MacOS|iOS|Android|Linux|others',
-//          browser : 'Chrome|Firefox|IE|Edge|Safari|Opera|others'
-//      }
 export function jf_client(ua, addTag = false) {
     let ret = {
         device: 'desktop',
