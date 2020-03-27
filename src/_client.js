@@ -8,7 +8,7 @@
 //          os : 'Windows|MacOS|iOS|Android|Linux|others',
 //          browser : 'Chrome|Firefox|IE|Edge|Safari|Opera|others'
 //      }
-export function jf_client(ua) {
+export function jf_client(ua, addTag = false) {
     let ret = {
         device: 'desktop',
         os: 'others',
@@ -18,46 +18,49 @@ export function jf_client(ua) {
 
     //device detection
     if (ua.indexOf('iphone') !== -1)
-        ret.device = 'mobile(phone)';
+        ret.device = 'mobile-phone';
     else if (ua.match(/(ipod|ipad)/))
-        ret.device = 'mobile(tablet)';
+        ret.device = 'mobile-tablet';
     else if (ua.indexOf('android') !== -1) {
         if (ua.indexOf('mobile') !== -1)
-            ret.device = 'mobile(phone)';
+            ret.device = 'mobile-phone';
         else
-            ret.device = 'tablet';
+            ret.device = 'mobile-tablet';
     }  else if (ua.match(/(weboS|blackberry|iemobile|opera mini)/)) {
         if (ua.indexOf('tablet') !== -1)
-            ret.device = 'mobile(tablet)';
+            ret.device = 'mobile-tablet';
         else
-            ret.device = 'mobile(phone)';
+            ret.device = 'mobile-phone';
     }
 
     //os detection
     if (ua.indexOf('win') !== -1)
-        ret.os = 'Windows';
+        ret.os = 'windows';
     else if (ua.indexOf('mac') !== -1)
-        ret.os = 'MacOS';
+        ret.os = 'macos';
     else if (ua.indexOf('ios') !== -1)
-        ret.os = 'iOS';
+        ret.os = 'ios';
     else if (ua.indexOf('android') !== -1)
-        ret.os = 'Android';
+        ret.os = 'android';
     else if (ua.indexOf('linux') !== -1)
-        ret.os = 'Linux';
+        ret.os = 'linux';
 
     //browser detection
     if (ua.indexOf('chrome') !== -1)
-        ret.browser = 'Chrome';
+        ret.browser = 'chrome';
     else if (ua.indexOf('firefox') !== -1)
-        ret.browser = 'Firefox';
+        ret.browser = 'firefox';
     else if (ua.indexOf('msie') !== -1)
-        ret.browser = 'IE';
+        ret.browser = 'ie';
     else if (ua.indexOf('edge') !== -1)
-        ret.browser = 'Edge';
+        ret.browser = 'edge';
     else if (ua.indexOf('safari') !== -1)
-        ret.browser = 'Safari';
+        ret.browser = 'safari';
     else if (ua.indexOf('opera') !== -1)
-        ret.browser = 'Opera';
+        ret.browser = 'opera';
+
+    if (addTag === true)
+        $('body').addClass('j-os-' + ret.os + ' j-dv-' + ret.device + ' j-br-' + ret.browser);
 
     return ret;
 }
