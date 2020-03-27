@@ -59,8 +59,8 @@ export function jf_client(ua, addTag = false) {
     else if (ua.indexOf('opera') !== -1)
         ret.browser = 'opera';
 
-    if (addTag === true)
-        $('body').addClass('j-os-' + ret.os + ' j-dv-' + ret.device + ' j-br-' + ret.browser);
+    if ((addTag === true)&&(window.jQuery !== undefined))
+        $('body').addClass('c-os-' + ret.os + ' c-dv-' + ret.device + ' c-br-' + ret.browser);
 
     return ret;
 }

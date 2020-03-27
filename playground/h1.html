@@ -17,6 +17,10 @@
         console.log('f called');
         console.log(new Date().Format('yyyy-MM-dd hh:mm:ss:SSS'));
     }
+    if (window.jQuery === undefined)
+        console.log('undefined');
+    else
+        console.log('defined');
 </script>
 </body>
 </html>
