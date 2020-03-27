@@ -3,7 +3,8 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../dist/funk.js"></script>
+    <script type="text/javascript" src="../dist/funk.js"></script>
+<!--    <script type="text/javascript" src="../playground/x1.js"></script>-->
     <style>
     </style>
 </head>
@@ -12,7 +13,8 @@
 <button onclick="f();">click</button>
 <script>
     function f() {
-        console.log(new Date().Format('yyy'));
+        console.log('f called');
+        console.log(new Date().Format('yyyy-MM-dd hh:mm:ss:SSS'));
     }
 </script>
 </body>

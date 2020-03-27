@@ -8,7 +8,7 @@
 //          os : 'Windows|MacOS|iOS|Android|Linux|others',
 //          browser : 'Chrome|Firefox|IE|Edge|Safari|Opera|others'
 //      }
-function jf_client(ua) {
+export function jf_client(ua) {
     let ret = {
         device: 'desktop',
         os: 'others',
