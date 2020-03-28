@@ -19,7 +19,7 @@ API documentation
 ### Debug
 >#### [jf_dbgCheck](#jf_dbgCheck)
 >#### [jf_dbgDump](#jf_dbgDump)
->#### [jf_dbgEnd](#jf_dbgReset)
+>#### [jf_dbgReset](#jf_dbgReset)
 
 ---
 
