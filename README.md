@@ -16,10 +16,15 @@ API documentation
 >#### [jf_intFill](#jf_intFill)
 >#### [jf_floatFill](#jf_floatFill)
 
+### Debug
+>#### [jf_dbgCheck](#jf_dbgCheck)
+>#### [jf_dbgDump](#jf_dbgDump)
+>#### [jf_dbgEnd](#jf_dbgReset)
 
 ---
 
 ### System/Environment
+
 
 <h4 id="jf_client" style="color:red;font-size:20px">Function :</h4>
 
@@ -43,6 +48,7 @@ get client device type/os/browser
 
 
 ### String Format
+
 
 <h4 id="jf_intFill" style="color:red;font-size:20px">Function :</h4>
 jf_intFill(num, len, stuff = ' ', dir = true)
@@ -79,6 +85,54 @@ output formatted string of float
 
 > formatted string, won't change if the original length greater than len
 
+
+
+### Debug
+
+
+<h4 id="jf_dbgCheck" style="color:red;font-size:20px">Function :</h4>
+jf_dbgCheck(tag, mute = false)
+    
+<h4 style="color:blue;">Description</h4>
+print current timestamp with tag and the interval from last checked point
+<h4 style="color:blue;">Arguments</h4>
+
+>tag(string) : tag name   
+>mute(bool) : put data into array without printing to console.   
+
+<h4 style="color:blue;">Returns</h4>
+
+> N/A
+
+
+
+<h4 id="jf_dbgDump" style="color:red;font-size:20px">Function :</h4>
+jf_dbgDump()
+    
+<h4 style="color:blue;">Description</h4>
+Dump data to console from the beginning
+<h4 style="color:blue;">Arguments</h4>
+
+>N/A   
+
+<h4 style="color:blue;">Returns</h4>
+
+> N/A
+
+
+
+<h4 id="jf_dbgReset" style="color:red;font-size:20px">Function :</h4>
+jf_dbgReset()
+    
+<h4 style="color:blue;">Description</h4>
+clear checked history
+<h4 style="color:blue;">Arguments</h4>
+
+> N/A   
+
+<h4 style="color:blue;">Returns</h4>
+
+> N/A
 
 
     
