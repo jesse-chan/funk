@@ -13,13 +13,13 @@ API documentation
 >#### [jf_client](#jf_client)
 
 ### String Format
->#### [jf_intFill](#jf_intFill)
->#### [jf_floatFill](#jf_floatFill)
+>#### [jf_intFill](#jf_intfill)
+>#### [jf_floatFill](#jf_floatfill)
 
 ### Debug
->#### [jf_dbgCheck](#jf_dbgCheck)
->#### [jf_dbgDump](#jf_dbgDump)
->#### [jf_dbgReset](#jf_dbgReset)
+>#### [jf_dbgCheck](#jf_dbgcheck)
+>#### [jf_dbgDump](#jf_dbgdump)
+>#### [jf_dbgReset](#jf_dbgreset)
 
 ---
 
@@ -50,7 +50,7 @@ get client device type/os/browser
 ### String Format
 
 
-<h4 id="jf_intFill" style="color:red;font-size:20px">Function :</h4>
+<h4 id="jf_intfill" style="color:red;font-size:20px">Function :</h4>
 jf_intFill(num, len, stuff = ' ', dir = true)
     
 <h4 style="color:blue;">Description</h4>
@@ -68,7 +68,7 @@ output formatted string of integer
 
 
 
-<h4 id="jf_floatFill" style="color:red;font-size:20px">Function :</h4>
+<h4 id="jf_floatfill" style="color:red;font-size:20px">Function :</h4>
 jf_floatFill(num, len, deciaml = 0, stuff = ' ', dir = true)
     
 <h4 style="color:blue;">Description</h4>
@@ -90,7 +90,7 @@ output formatted string of float
 ### Debug
 
 
-<h4 id="jf_dbgCheck" style="color:red;font-size:20px">Function :</h4>
+<h4 id="jf_dbgcheck" style="color:red;font-size:20px">Function :</h4>
 jf_dbgCheck(tag, mute = false)
     
 <h4 style="color:blue;">Description</h4>
@@ -106,7 +106,7 @@ print current timestamp with tag and the interval from last checked point
 
 
 
-<h4 id="jf_dbgDump" style="color:red;font-size:20px">Function :</h4>
+<h4 id="jf_dbgdump" style="color:red;font-size:20px">Function :</h4>
 jf_dbgDump()
     
 <h4 style="color:blue;">Description</h4>
@@ -121,7 +121,7 @@ Dump data to console from the beginning
 
 
 
-<h4 id="jf_dbgReset" style="color:red;font-size:20px">Function :</h4>
+<h4 id="jf_dbgreset" style="color:red;font-size:20px">Function :</h4>
 jf_dbgReset()
     
 <h4 style="color:blue;">Description</h4>
